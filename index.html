@@ -3,32 +3,32 @@
 	<head>
 		<title>Freewall - jQuery plugin for creating grid layouts</title>
 		<meta content="text/html; charset=utf-8" http-equiv="content-type">
-		<meta name="description" content="Freewall is a cross-browser and responsive jQuery plugin to help you create many types of grid layouts: flexible layouts, images layouts, fluid grid layouts, metro style layouts, pinterest like layouts ... for desktop, mobile and tablet" />
+		<meta name="description" content="Freewall is a cross-browser and responsive jQuery plugin to help you create many types of grid layouts: flexible layouts, images layouts, nested grid layouts, metro style layouts, pinterest like layouts ... for desktop, mobile and tablet" />
 		<meta name="keywords" content="javascript, dynamic, grid, layout, jquery plugin, flexible layouts, images layouts, fluid grid layouts, metro style layouts, pinterest like layouts"/>
-		<meta name="og:image" content="http://vnjs.net/www/project/freewall/demo/i/flex.png" />
-		<meta name="og:description" content="Freewall is a responsive and cross-browser jQuery plugin for creating dynamic grid layout for desktop, mobile and tablet." />
+		<meta name="og:image" content="http://vnjs.net/www/project/freewall/i/flex.png" />
+		<meta name="og:description" content="Freewall is a cross-browser and responsive jQuery plugin for creating dynamic grid layouts for desktop, mobile and tablet." />
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="demo/css/style.css" />
-		<script type="text/javascript" src="demo/js/jquery-1.7.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="example/css/style.css" />
+		<script type="text/javascript" src="example/js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="freewall.js"></script>
-		<script type="text/javascript" src="demo/js/index.js"></script>
+		<script type="text/javascript" src="example/js/index.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				app.setup({
-					preload: 1,
 					share: 1,
 					color: 1,
 					layout: 1,
-					filter: 1,
 					events: 1,
 					methods: 1,
-					options: 1
+					options: 1,
+					preload: 1,
+					drillhole: 1
 				});
 			});
 		</script>
 		<style type="text/css">
 			.free-wall {
-				margin: 10px;
+				margin: 15px;
 			}
 		</style>
 	</head>
@@ -37,7 +37,7 @@
 			<div class="clearfix">
 				<div class="float-left">
 						<h1><a href="http://vnjs.net/www/project/freewall/">Free Wall</a></h1>
-						<div class='target'>Creating dynamic grid layout without gaps.</div>
+						<div class='target'>Creating dynamic grid layouts.</div>
 				</div>
 				<ul class="float-right reponsive-block">
 					<li><a class="desktop active" data-width="auto"></a></li> 
@@ -48,36 +48,46 @@
 				</ul>	
 			</div>
 		</div>
+		<div id="freewall-logo" class="free-wall-logo"></div>
 		<div id="freewall" class="free-wall">
-			<div class="brick size33" data-fixsize=0 > 
+			<div class="brick size33" data-fixSize=0 > 
 				<div class='cover'>
 					<h2>What is Freewall?</h2>
 					<p>
-						Freewall is a cross-browser and responsive jQuery plugin to help you create many types of grid layouts: flexible layout, images layout, nested grid, fluid grid, metro style layout, pinterest like layout ... with nice CSS3 animation effects and call back events. Freewall is all-in-one solution for creating dynamic grid layouts for desktop, mobile and tablet.
+						Freewall is a cross-browser and responsive jQuery plugin to help you create many types of grid layouts: flexible layouts, images layouts, nested grid layouts, metro style layouts, pinterest like layouts ... with nice CSS3 animation effects and call back events. Freewall is all-in-one solution for creating dynamic grid layouts for desktop, mobile and tablet.
 					</p>
 					<h4>Some example layouts:</h4>
 					<br/>
 					<ul class="img-demo">
 						<li>
-							<img src="demo/i/flex.png" width=98 height=98 />
-							<h3>Flex layout</h3>
+							<a href="example/flex-grid.html" target="_blank">
+								<img src="i/flex.png" width=98 height=98 />
+								<h3>Flex layout</h3>
+							</a>
 						</li>
 						<li>
-							<img src="demo/i/metro.png" width=98 height=98 />
-							<h3>Metro style</h3>
+							<a href="example/metro-style.html" target="_blank">
+								<img src="i/metro.png" width=98 height=98 />
+								<h3>Window 8</h3>
+							</a>
 						</li>
 						<li>
-							<img src="demo/i/images.png" width=98 height=98 />
-							<h3>Images layout</h3>
+							<a href="example/image-layout.html" target="_blank">
+								<img src="i/image.png" width=98 height=98 />
+								<h3>Images layout</h3>
+							</a>
 						</li>
 						<li>
-							<img src="demo/i/pinterest.png" width=98 height=98 />
-							<h3>Pinterest layout</h3>
+							<a href="example/pinterest-layout.html" target="_blank">
+								<img src="i/pinterest.png" width=98 height=98 />
+								<h3>Pinterest layout</h3>
+							</a>
 						</li>
 					</ul>
 				</div>
-			</div>	
-			<div class="brick size22" data-fixsize=0> 
+			</div>
+
+			<div class="brick size22" data-fixSize=0> 
 				<div class='cover'>
 					<h2> How it works </h2>
 					<p>
@@ -86,19 +96,51 @@
 				</div>
 			</div>
 
-			<div class="brick size35" data-fixsize=0 >
-				<div class='cover'> 
-					<h2>Getting started</h2>
-					<div>
-						<p> Freewall requires jQuery framework.  It requires browsers which support CSS3 for some nice animation effects.</p>
-						<pre>
-							<code>
+			<div class="size22" data-nested=".brick" data-fixSize=0>
+				<div class="brick size11">
+					<a href='https://github.com/kombai/freewall' class="fork" target="_blank"></a>
+				</div>
+				<div class="brick size12" data-fixSize=0>
+					<div class='cover'>
+						<h2>Share</h2>
+						<div class="twitter-share">Twitter</div>
+						<div class="google-share">Google +</div>
+						<div class="facebook-share">Facebook</div>
+					</div>
+				</div>
+
+				<div class="brick size11">
+					<div class='cover'>
+						<h2>Download</h2>
+						<a href='https://github.com/kombai/freewall/archive/master.zip' target='_blank' class="download-icon">Project</a>
+						<a href='https://raw.github.com/kombai/freewall/master/freewall.js' target='_blank' class="js-icon">Freewall.js</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="donate size11">
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="SZSGB3GJ3T4VU">
+					<input class="paypal" type="image" src="example/i/donate.png" border="0" name="submit" alt="">
+					<div align="center">Buy me a beer :)</div>
+				</form>
+			</div>
+
+			<div class="brick size36" data-fixSize=0 >
+				<div class='cover'>
+					<a class='float-left' href="example/getting-started.html" target="_blank">
+						<h2>Getting started</h2>
+						<div>
+							<p> Freewall requires jQuery or Zepto framework.  It requires browsers which support CSS3 for some nice animation effects.</p>
+							<pre>
+								<code>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt; freewall demo getting started&lt;/title&gt;
-  &lt;script src="js/jquery-1.7.min.js"&gt;&lt;/script&gt;
-  &lt;script src="js/freewall.js"&gt;&lt;/script&gt;
+  &lt;script src="js/jquery-1.10.2.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../freewall.js"&gt;&lt;/script&gt;
   &lt;style type="text/css"&gt;
     #container {
       width: 80%;
@@ -112,15 +154,15 @@
   &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;ul id="container"&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-    &lt;li class="item"&gt;&lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;div id="container"&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+  &lt;/div&gt;
   &lt;script&gt;
     $(function() {
       var wall = new freewall("#container");
@@ -129,29 +171,54 @@
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-							</code>
-						</pre>
-					</div>
+								</code>
+							</pre>
+						</div>
+						<div class="read-more">View detail ...</div>
+					</a>
 				</div>
 			</div>
-
-			<div class="brick size22 options">
+			
+			<div class="brick size23">
+				<div class='cover'>
+					<h2>Features</h2>
+					<ul>
+						<li> Draggable support </li>
+						<li> Direction support </li>
+						<li> Custom plugin</li>
+						<li> Responsive grid </li>
+						<li> Gaps control </li> 
+						<li> Filter items </li>
+						<li> CSS3 animation (js fallback) </li>
+						<li> Nested grid </li>
+						<li> Images grid/layout </li>
+						<li> Fit container </li>
+						<li> Vertical grid/layout </li>
+						<li> Horizontal grid/layout </li>
+						<li> Window 8 metro style </li>
+						<li> Pinterest like grid/layout </li>
+					</ul>
+				</div>
+			</div>	
+			
+			<div class="brick size23 options">
 				<div class='cover' id="options">
 					<div class='float-left'>
 						<h2>Options</h2>
 						<ul>
+							<li> draggable </li>
 							<li> animate </li>
-							<li> cell 
-								<ul>
-									<li>width</li>
-									<li>height</li>
-								</ul>
-							</li>
+							<li> cellW </li>
+							<li> cellH </li> 
 							<li> delay </li>
 							<li> fixSize </li>
 							<li> gutterX </li>
 							<li> gutterY </li>
 							<li> selector </li>
+							<li> keepOrder </li>
+							<li> cacheSize </li>
+							<li> rightToLeft </li>
+							<li> bottomToTop </li>
 						</ul>
 						<div class="read-more">View detail ...</div>
 					</div>
@@ -159,43 +226,48 @@
 						<h2>
 							<span>Options</span>
 						</h2>
-						<h3>All options are parameters of Reset method</h3>
+						<h3>All options are parameters of <i>Reset</i> method</h3>
 						<ul>
 							<li>
-								<h3> animate : boolean </h3>
-								<div> True to make block move with animation</div>
+								<h3> draggable : boolean </h3>
+								<div> 
+									Default: false <br/>
+									True: to make block can be drag & drop</div>
 							</li>
 							<li>
-								<h3> cell: object </h3>
-								<ul>
-									<li>
-										<h3> width : number </h3>
-										<div>
-											Default: 100 <br/>
-											The width of unit, base on it will build grid container.
-										</div>
-									</li>
-									<li>
-										<h3> height : number </h3>
-										<div>
-											Default: 100 <br/>
-											The height of unit, base on it will build grid container.
-										</div>
-									</li>
-								</ul>
+								<h3> animate : boolean </h3>
+								<div> True: to make block move with animation</div>
+							</li>
+							
+							<li>
+								<h3> cellW: mix </h3>
+								<div>
+									Default: 100 <br/>
+									The width of unit, base on it will build grid container.
+									It can be a function and return value.
+								</div>
 								<h3> Example </h3>
 									<pre>
 										<code>
 var wall = new freewall('.free-wall');
 wall.reset({
   selector: '.brick',
-  cell: {
-    width: 160,
-    height: 160
-  }
+  cellW: function(width) {
+      var cellWidth = width / 3;
+      return cellWidth - 20;
+    },
+  cellH: 160
 });											
 										</code>
 									</pre>	
+							</li>
+							<li>
+								<h3> cellH: mix </h3>
+								<div>
+									Default: 100 <br/>
+									The height of unit, base on it will build grid container.
+									It can be a function and return value.
+								</div>
 							</li>
 							<li>
 								<h3> delay : number </h3>
@@ -212,11 +284,11 @@ wall.reset({
 									value is 0 or false let blocks can adjust size but can't resize to fill gap.<br/>
 									value is 1 or true let blocks keep the size as init, can't resize to fill gap.<br/>
 
-									Can override the fixSize option by set data-fixsize attribute in the block.
+									Can override the fixSize option by set data-fixSize attribute in the block.
 									<h3> Example </h3>
 									<pre>
 										<code>
-&lt;div class="brick size22" data-fixsize=true&gt;
+&lt;div class="brick size22" data-fixSize=true&gt;
   &lt;div class='cover'&gt;
     &lt;div class="item size12"&gt;&lt;/div&gt;
     &lt;div class="item size12"&gt;&lt;/div&gt;
@@ -252,16 +324,34 @@ var wall = new freewall('.free-wall');
 wall.reset({
   selector: '.brick',
   animate: true,
-  cell: {
-    width: 150,
-    height: 150
-  },
+  cellW: 150,
+  cellH: 150,
   gutterY: 10,
   gutterX: 'auto'
 });
 									</code>
 								</pre>
-							</li>	
+							</li>
+							<li>
+								<h3> cacheSize : boolean </h3>
+								<div> 
+									Default: true <br/>
+									True: will caches the with and height of block for next time</div>
+							</li>
+							<li>
+								<h3> keepOrder : boolean </h3>
+								<div> Keep the order as same as HTML structure</div>
+							</li>
+							<li>
+								<h3> rightToLeft : boolean </h3>
+								<div> Default: false <br/>
+									True: let layout start render from right to left</div>
+							</li>
+							<li>
+								<h3> bottomToTop : boolean </h3>
+								<div> Default: false <br/>
+									True: let layout start render from bottom up to top</div>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -273,10 +363,13 @@ wall.reset({
 						<h2>Events</h2>
 						<div class='float-left'>
 							<ul>
-								<li> onComplete </li>
 								<li> onGapFound </li>
+								<li> onComplete </li>
 								<li> onResize </li>
-								<li> onSetBlock </li>
+								<li> onBlockReady </li>
+								<li> onBlockActive </li>
+								<li> onBlockFinish </li>
+								<li> onBlockResize </li>
 							</ul>
 						</div>
 						<div class="read-more">View detail ...</div>
@@ -287,12 +380,12 @@ wall.reset({
 						</h2>
 						<ul>
 							<li>
-								<h3> onComplete </h3>
-								<div> Registry callback when all block arrange.</div>
-							</li>
-							<li>
 								<h3> onGapFound </h3>
 								<div> Registry callback when a gap found.</div>
+							</li>
+							<li>
+								<h3> onComplete </h3>
+								<div> Registry callback when all block arrange.</div>
 							</li>
 							<li>
 								<h3> onResize </h3>
@@ -313,27 +406,47 @@ wall.reset({
 								</pre>
 							</li>
 							<li>
-								<h3> onSetBlock </h3>
-								<div> Registry callback when arrange each block.</div>
+								<h3> onBlockReady </h3>
+								<div> Fire when block adjusted.</div>
+							</li>
+							<li>
+								<h3> onBlockActive </h3>
+								<div> Fire before block show or hide in the layout.</div>
+							</li>
+							<li>
+								<h3> onBlockFinish </h3>
+								<div> Fire when block finish show or hide in the layout.</div>
+							</li>
+							<li>
+								<h3> onBlockResize </h3>
+								<div> Fire when block changes the size to fills a gap.</div>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 
-			<div class="brick size22 methods">
+			<div class="brick size23 methods">
 				<div class='cover' id="methods">
 					<div class='float-left'>
 						<h2>Methods</h2>
 						<ul>
-							<li> appendMore </li>
+							<li> addCustomEvent </li>
+							<li> appendBlock </li>
+							<li> appendHoles </li>
+							<li> fillHoles </li>
+							<li> filter </li>
+							<li> fireEvent </li>
 							<li> fitHeight </li>
 							<li> fitWidth </li>
 							<li> fitZone </li>
+							<li> fixPos </li>
 							<li> fixSize </li>
+							<li> prepend </li>
+							<li> refresh </li>
 							<li> reset </li>
-							<li> setFilter </li>
-							<li> unsetFilter </li>
+							<li> setHoles </li>
+							<li> unFilter </li>
 						</ul>
 						<div class="read-more">View detail ...</div>
 					</div>
@@ -343,8 +456,28 @@ wall.reset({
 						</h2>
 						<ul>
 							<li>
-								<h3> appendMore(elements) </h3>
-								<div> Append one or more elements in to the wall</div>
+								<h3> addCustomEvent(name, handler) </h3>
+								<div> Support create custom event when arrange layout</div>
+							</li>
+							<li>
+								<h3> appendBlock(items) </h3>
+								<div> Append one or more items into layout</div>
+							</li>
+							<li>
+								<h3> appendHoles(holes) </h3>
+								<div> Add one or more blank area into layout</div>
+							</li>
+							<li>
+								<h3> fillHoles() </h3>
+								<div> Let layout without gaps</div>
+							</li>
+							<li>
+								<h3> filter(selector) </h3>
+								<div> Fillter blocks to show</div>
+							</li>
+							<li>
+								<h3> fireEvent() </h3>
+								<div> Fire custom event</div>
 							</li>
 							<li>
 								<h3> fitHeight(height) </h3>
@@ -357,6 +490,10 @@ wall.reset({
 							<li>
 								<h3> fitZone(width, height) </h3>
 								<div> Made the layout fit with limit width and height</div>
+							</li>
+							<li>
+								<h3> fixPos(object) </h3>
+								<div> Set a block at fixed position, top/left is multiple of cell with/height</div>
 							</li>
 							<li>
 								<h3> fixSize(object) </h3>
@@ -377,6 +514,14 @@ wall.fitWidth();
 								</pre>
 							</li>
 							<li>
+								<h3> prepend(items) </h3>
+								<div> Prepend one or more items into layout</div>
+							</li>
+							<li>
+								<h3> refresh() </h3>
+								<div> rearrange layout</div>
+							</li>
+							<li>
 								<h3> reset(options) </h3>
 								<div> Config options for render layout.</div>
 								<h5> Example </h5>
@@ -386,26 +531,23 @@ var ewall = new freewall(demo);
 var demo = $(".example");
 ewall.reset({
   selector: '.cell',
-  animate: false,
-  block: {
-    flex: 1
-  },
-  cell: {
-    width: 150,
-    height: 150
-  },
-  fillGap: true
+  animate: true,
+  delay: 20,
+  cellW: 15.5,
+  cellH: 15,
+  gutterX: 2,
+  gutterY: 2
 });
 ewall.fitWidth(cwidth);
 									</code>
 								</pre>
 							</li>
 							<li>
-								<h3> setFilter(selector) </h3>
-								<div> Fillter blocks to show</div>
+								<h3> setHoles(hole) </h3>
+								<div> Set the holes on layout</div>
 							</li>
 							<li>
-								<h3> unsetFilter() </h3>
+								<h3> unFilter() </h3>
 								<div> Made all block to show</div>
 							</li>
 						</ul>
@@ -413,66 +555,52 @@ ewall.fitWidth(cwidth);
 				</div>
 			</div>
 
+			<div class="brick size12">
+				<div class='cover'>
+					<h2> Supports</h2>
+					<ul>
+						<li>Chrome</li>
+						<li>Opera</li>
+						<li>Safari</li>
+						<li>IE 8.0+</li>
+						<li>Firefox</li>
+					</ul>
+				</div>
+			</div>
+			
 			<div class="brick size11">
 				<div class='cover'>
-					<a href='https://github.com/kombai/freewall' target="_blank">
-						<img style="position: absolute; top: 0; right: 0; border: 0;" src="demo/i/forkme.png" alt="Fork me on GitHub" />
-					</a>
-				</div>
-			</div>
-
-			<div class="brick size12" data-fixsize=0>
-				<div class='cover'>
-					<h2>Share</h2>
-					<div class="twitter-share">Twitter</div>
-					<div class="google-share">Google +</div>
-					<div class="facebook-share">Facebook</div>
-				</div>
-			</div>
-
-			<div class="brick size11">
-				<div class='cover'>
-					<h2>Download</h2>
-					<a href='https://github.com/kombai/freewall/archive/master.zip' target='_blank' class="download-icon">Project</a>
-					<a href='https://raw.github.com/kombai/freewall/master/freewall.js' target='_blank' class="js-icon">Freewall.js</a>
-				</div>
-			</div>
-
-			<div class="brick size11 filter">
-				<div class='cover' id="demo-filter">
-					<div class="float-left">
+					<a class="float-left" href="example/demo-filter.html" target="_blank">
 						<h2> Example </h2>
 						<div> Filter </div>
 						<div class="read-more">View detail ...</div>
-					</div>
-					<div class='desc'>
-						<h2>
-							<span>Filter</span>
-						</h2>
-						<pre>
-							<code>
-new freewall('.free-wall')
-.setFilter('.size22, .size11')
-.fitWidth();
-							</code>
-						</pre>
-					</div>
+					</a>
 				</div>
 			</div>
-
+			
 			<div class="brick size11">
 				<div class='cover'>
-					<a class="float-left" href="demo/append-more.html" target="_blank">
+					<a class="float-left" href="example/append-more.html" target="_blank">
 						<h2>Example</h2>
 						<div> Append item </div>
 						<div class="read-more">View detail ...</div>
 					</a>
 				</div>
 			</div>
+			
+			<div class="brick size11">
+				<div class='cover'>
+					<a class="float-left" href="example/prepend-example.html" target="_blank">
+						<h2>Example</h2>
+						<div> Prepend item </div>
+						<div class="read-more">View detail ...</div>
+					</a>
+				</div>
+			</div>
 
 			<div class="brick size11">
 				<div class='cover'>
-					<a class="float-left" href="demo/css-animate.html" target="_blank">
+					<a class="float-left" href="example/css-animate.html" target="_blank">
 						<h2>Example</h2>
 						<div> CSS3 animation </div>
 						<div class="read-more">View detail ...</div>
@@ -480,19 +608,30 @@ new freewall('.free-wall')
 				</div>
 			</div>
 
-			<div class="brick size11">
+			<div class="brick size11 example-draggable" data-draggable=1>
 				<div class='cover'>
-					<a class="float-left" href="demo/engine-slice.html" target="_blank">
+					<div class="float-left">
 						<h2>Example</h2>
-						<div> Engine slice </div>
-						<div class="read-more">View detail ...</div>
-					</a>
+						<div> Draggable </div>
+						<a class="read-more" href="example/draggable.html" target="_blank">View detail ...</a>
+					</div>
 				</div>
 			</div>
 
 			<div class="brick size11">
 				<div class='cover'>
-					<a class="float-left" href="demo/fit-height.html" target="_blank">
+					<a class="float-left" href="example/for-zepto.html" target="_blank">
+						<h2>Example</h2>
+						<div>For Zeptojs</div>
+						<div class="read-more">View detail ...</div>
+					</a>
+				</div>
+			</div>
+			
+			
+			<div class="brick size12">
+				<div class='cover'>
+					<a class="float-left" href="example/fit-height.html" target="_blank">
 						<h2>Example</h2>
 						<div> Fit height </div>
 						<div class="read-more">View detail ...</div>
@@ -500,9 +639,9 @@ new freewall('.free-wall')
 				</div>
 			</div>
 
-			<div class="brick size11">
+			<div class="brick size12">
 				<div class='cover'>
-					<a class="float-left" href="demo/fit-zone.html" target="_blank">
+					<a class="float-left" href="example/fit-zone.html" target="_blank">
 						<h2>Example</h2>
 						<div>Fit zone</div>
 						<div class="read-more">View detail ...</div>
@@ -510,19 +649,40 @@ new freewall('.free-wall')
 				</div>
 			</div>
 
-			<div class="brick size11">
+			
+			<div class="brick size21"> 
 				<div class='cover'>
-					<a class="float-left" href="demo/for-zepto.html" target="_blank">
-						<h2>Example</h2>
-						<div>For Zeptojs</div>
+					<a class="float-left" href="example/metro-style.html" target="_blank">
+						<h2>Example </h2>
+						<div>Window 8 metro style</div>
 						<div class="read-more">View detail ...</div>
 					</a>
 				</div>
 			</div>
-
+			
+			<div class="brick size11"> 
+				<div class='cover'> 
+					<a class="float-left" href="example/image-layout.html" target="_blank">
+						<h2>Example</h2>
+						<div>Images layout</div>
+						<div class="read-more">View detail ...</div>
+					</a>
+				</div>
+			</div>
+			
+			<div class="brick size11"> 
+				<div class='cover'>
+					<a class="float-left" href="example/pinterest-layout.html" target="_blank">
+						<h2>Example </h2>
+						<div>Pinterest like layout</div>
+						<div class="read-more">View detail ...</div>
+					</a>
+				</div>
+			</div>
+ 			
 			<div class="brick size21"> 
 				<div class='cover'>
-					<a class="float-left" href="demo/flex-grid.html" target="_blank">
+					<a class="float-left" href="example/flex-grid.html" target="_blank">
 						<h2>Example</h2>
 						<div>Flexible grid</div>
 						<div class="read-more">View detail ...</div>
@@ -532,7 +692,7 @@ new freewall('.free-wall')
 
 			<div class="brick size21"> 
 				<div class='cover'>
-					<a class="float-left" href="demo/grid-layout.html" target="_blank">
+					<a class="float-left" href="example/grid-layout.html" target="_blank">
 						<h2>Example</h2>
 						<div>Grid layout</div>
 						<div class="read-more">View detail ...</div>
@@ -541,48 +701,16 @@ new freewall('.free-wall')
 			</div>
 
 			<div class="brick size21"> 
-				<div class='cover'> 
-					<a class="float-left" href="demo/image-layout.html" target="_blank">
-						<h2>Example</h2>
-						<div>Images layout</div>
-						<div class="read-more">View detail ...</div>
-					</a>
-				</div>
-			</div>
-
-			<div class="brick size21"> 
 				<div class='cover'>
-					<a class="float-left" href="demo/metro-style.html" target="_blank">
-						<h2>Example </h2>
-						<div>Metro style</div>
-						<div class="read-more">View detail ...</div>
-					</a>
-				</div>
-			</div>
-
-			<div class="brick size21"> 
-				<div class='cover'>
-					<a class="float-left" href="demo/nested-grid.html" target="_blank">
+					<a class="float-left" href="example/nested-grid.html" target="_blank">
 						<h2>Example</h2>
 						<div>Nested grid</div>
 						<div class="read-more">View detail ...</div>
 					</a>
 				</div>
 			</div>
-
-			<div class="brick size21"> 
-				<div class='cover'>
-					<a class="float-left" href="demo/pinterest-layout.html" target="_blank">
-						<h2>Example </h2>
-						<div>Pinterest like layout</div>
-						<div class="read-more">View detail ...</div>
-					</a>
-				</div>
-			</div>
 			
-			<div class="brick example"></div>
-
-			<div class="brick size21" data-fixsize=0 >
+			<div class="brick size21" data-fixSize=0 >
 				<div class='cover'>
 					<h2>Copyright</h2>
 					<p> © 2013 Minh Nguyen </p>
